@@ -29,3 +29,51 @@ python main.py
 ## Что показывает модель
 
 Модель линейной регрессии пытается предсказать `Price` по `Quantity`.
+
+## Пример вывода
+
+### Размер исходного датасета: (5000, 8)
+
+### Первые пять строк:
+
+|    | Transaction_ID | Transaction_Date | Customer_ID | Product_Name   | Quantity | Price               | Payment_Method | Transaction_Status |
+|---:|----------------|------------------|-------------|----------------|---------:|---------------------|----------------|--------------------|
+| 0  | T0001          | 2024-08-02       | C2205       | Headphones     |     -5.0 | $420.21             | pay pal        | NaN                |
+| 1  | T0002          | 2020-02-10       | C3156       | Coffee         |    469.0 | -445.34202525395585 | creditcard     | Pending            |
+| 2  | T0003          | 2025-02-30       | C2919       | Tablet         |     -4.0 | 810.9930123946459   | credit card    | completed          |
+| 3  | T0004          | 2020-08-17       | C3009       | Tab            |     -7.0 | 868.6083413217348   | PayPal         | Pending            |
+| 4  | T0005          | 2025-02-30       | C3488       | Coffee Machine |    -10.0 | -763.1224490039416  | PayPal         | completed          |
+
+### Отчет о пропусках до обработки:
+
+|                    | missing_count | missing_percent |
+|--------------------|--------------:|----------------:|
+| Transaction_ID     |           252 |            5.04 |
+| Transaction_Date   |           246 |            4.92 |
+| Customer_ID        |           248 |            4.96 |
+| Product_Name       |             0 |            0.00 |
+| Quantity           |           227 |            4.54 |
+| Price              |          1669 |           33.38 |
+| Payment_Method     |             0 |            0.00 |
+| Transaction_Status |           815 |           16.30 |
+
+### Количество строк после удаления дубликатов: 4998
+
+### Отчет о пропусках после частичного заполнения:
+
+|                    | missing_count | missing_percent |
+|--------------------|--------------:|----------------:|
+| Transaction_ID     |           252 |            5.04 |
+| Transaction_Date   |          3449 |           69.01 |
+| Customer_ID        |           248 |            4.96 |
+| Product_Name       |             0 |            0.00 |
+| Quantity           |             0 |            0.00 |
+| Price              |             0 |            0.00 |
+| Payment_Method     |             0 |            0.00 |
+| Transaction_Status |             0 |            0.00 |
+
+### Результаты модели:
+
+| MSE      | R^2     |
+|----------|--------|
+| 26527.04 | -0.002 |
